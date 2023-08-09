@@ -1,0 +1,316 @@
+/* fonts import  */
+@import url('https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    /* min-height: 100%; */
+
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-image: linear-gradient(130deg, rgb(115, 0, 255), rgb(102, 0, 128));
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.box {
+    background-color: rgb(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 550px;
+    margin: 50px 10px;
+}
+
+.box h1 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Lisu Bosa', serif;
+    font-size: 36px;
+}
+
+.input-div {
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    padding-inline: 10px;
+    position: sticky;
+    top: 20px;
+    z-index: 2;
+}
+
+.input-div input {
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: rgb(214, 214, 214);
+    flex: 1;
+    font-size: 17px;
+    text-indent: 20px;
+    padding-right: 45px;
+    font-family: monospace;
+
+}
+
+.add {
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    background-color: rgb(255, 78, 47);
+    padding: 5px 25px;
+    /* margin-left: -35px; */
+    margin-left: -37px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tasks-box {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    max-height: 400px;
+    margin-top: 20px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+/* tasks-box scrollbar effects  */
+.tasks-box::-webkit-scrollbar {
+    width: 8px;
+    height: 100%;
+}
+
+.tasks-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tasks-box::-webkit-scrollbar-thumb {
+    background: #afafaf;
+    border-radius: 5px;
+}
+
+.tasks-box::-webkit-scrollbar-thumb:hover {
+    background: #9a9a9a;
+}
+
+.tasks-box::-webkit-scrollbar-button {
+    display: none;
+}
+
+
+.tasks-box ul li {
+    list-style-type: none;
+    margin: 5px;
+    font-size: 1.2rem;
+    padding: 10px 10px 5px 50px;
+    position: relative;
+    border-radius: 20px;
+    user-select: none;
+}
+
+.tasks-box ul li::before {
+    content: "";
+    position: absolute;
+    background-color: red;
+    height: 10px;
+    width: 10px;
+    left: 17px;
+    top: 15px;
+    border-radius: 50%;
+}
+
+.tasks-box ul li span {
+    font-size: 20px;
+    padding: 0px 6px;
+    border-radius: 50%;
+    float: right;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tasks-box ul li span:hover {
+    background-color: rgb(158, 158, 158);
+}
+
+.click-item {
+    /* background-color: rgb(197, 197, 197); */
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+    color: darkorange;
+}
+
+.click-item::before {
+    transform: rotate(10deg);
+    background-image: url("./contents/tick1.png") !important;
+    background-size: contain;
+    width: 20px !important;
+    height: 20px !important;
+    left: 15px !important;
+    top: 11px !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    content: "" !important;
+}
+
+/*  notice div ------------------------------*/
+.notice {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-family: sans-serif;
+    opacity: 0.4;
+    transition-duration: .2s;
+    user-select: none;
+}
+
+.notice small {
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    padding: 3px 25px 3px 10px;
+
+}
+
+.notice span {
+    background-color: rgb(255, 78, 47);
+    border-radius: 50%;
+    font-size: 20px;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    right: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* dark effect area ---------------------> */
+
+.black-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+
+
+/* settings area starts here ---------------------------------> */
+
+.settings-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    z-index: 4;
+    padding: 10px;
+    text-shadow: 0px 0px 1px rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+
+.settings {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    width: 300px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    z-index: 3;
+    /* opacity: .5; */
+    cursor: default;
+    font-family: fantasy;
+    font-weight: 600;
+    font-size: 20px;
+    border: 1px solid #000000;
+
+    user-select: none;
+    /* transition-duration: .2s; */
+    background-color: rgb(211, 211, 211);
+    display: none;
+}
+
+.s-item {
+    padding: 5px 5px 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.s-title{
+    text-align: center;
+    margin: 10px 10px 30px 10px;
+    font-size: 24px;
+}
+
+.bg-change {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bg-prev,#bg-next {
+    cursor: pointer;
+    font-size: 25px;
+}
+
+
+/* hover effects ----------------------------------------------- */
+
+.settings-logo:hover>.settings,
+.settings-logo:hover>.dark-effect {
+    display: block;
+}
+
+
+.s-item:hover {
+    background: orange;
+}
+
+.notice:hover {
+    opacity: 1;
+}
+
+#bg-prev:hover,#bg-next:hover{
+    scale: 1.3;
+}
+
+
+/* dark mode effects ------------------------------------------- */
+
+.dark-mode {
+    background: rgb(21, 21, 26, 0.8);
+    color: white;
+}
+
+/* media queries responsiveness ---------------------------------- */
+
+@media (width<=600px) {
+    .tasks-box {
+        padding: 20px 5px;
+    }
+}
+
+@media (width>=600px) {
+    /* .notice {
+        display: none;
+    } */
+}

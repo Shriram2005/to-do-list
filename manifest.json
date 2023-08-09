@@ -1,0 +1,19 @@
+{
+    "name": "to-do List",
+    "short_name": "to-do-List",
+    "start_url": "https://to-do-list.shrirammange.repl.co/",
+    "display": "fullscreen",
+    "background_color" : "#ffffff",
+    "icons" : [
+        {
+            "src" : "contents/title.png",
+            "sizes" : "192x192",
+            "type" : "image/png"
+        },
+        {
+            "src" : "contents/title.png",
+            "sizes" : "512x512",
+            "type" : "image/png"
+        }
+    ]
+}

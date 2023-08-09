@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="contents/title.png">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://kit.fontawesome.com/85a51766c8.js" crossorigin="anonymous"></script>
+  <script src="script2.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <h1>To Do List‎ <img src="contents/to-do-list.png" id="list-logo" alt="list" width="27px"
+          style="padding-left: 10px; user-select: none;"></h1>
+      <div class="input-div">
+        <input type="text" placeholder="Input your task" id="input-task">
+        <div class="add" onclick="addTask()">Add</div>
+      </div>
+      <div class="tasks-box" id="tasks-box">
+        <ul id="list">
+          <li>Click add to add task<span>&times;</span></li>
+          <li>Click on task to mark completed<span>&times;</span></li>
+          <li>Click on 'x' symbol to remove task<span>&times;</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-logo">
+    <i class="fa-solid fa-gear" style="color: #3f3f3f;"></i>
+    <div class="settings">
+      <div class="s-title">Settings</div>
+      <div class="bg-change s-item">
+        <i class="fa-solid fa-backward" id="bg-prev"></i><span>change background</span><i class="fa-solid fa-forward" id="bg-next"></i>
+      </div>
+      <div class="dark-btn s-item">dark/light mode</div>
+    </div>
+  </div>
+
+  <div class="notice flex">
+    <small>- Create desktop shortcut for better experience <br>- All data is stored in your device</small>
+    <span class="flex">&times;</span>
+  </div>
+<div class="black-effect"></div>
+
+  <script src="script.js"></script>
+  
+
+</body>
+
+</html>
