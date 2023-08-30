@@ -9,12 +9,24 @@
   <link rel="icon" href="contents/title.png">
   <link rel="manifest" href="manifest.json">
   <script src="https://kit.fontawesome.com/85a51766c8.js" crossorigin="anonymous"></script>
-  <script src="script2.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    }
+  </script>
 </head>
+
+<!-- main container  -->
 
 <body>
   <div class="container">
-    <div class="box">
+    <div class="box dark-mode">
       <h1>To Do List‎ <img src="contents/to-do-list.png" id="list-logo" alt="list" width="27px"
           style="padding-left: 10px; user-select: none;"></h1>
       <div class="input-div">
@@ -31,25 +43,31 @@
     </div>
   </div>
 
+  <!-- settings area -->
   <div class="settings-logo">
-    <i class="fa-solid fa-gear" style="color: #3f3f3f;"></i>
-    <div class="settings">
-      <div class="s-title">Settings</div>
+    <img src="contents/gear.svg" alt="settings" width="35px" id="gear">
+    <div class="settings dark-mode">
+      <div class="s-title">
+        <h2>Settings</h2>
+      </div>
       <div class="bg-change s-item">
-        <i class="fa-solid fa-backward" id="bg-prev"></i><span>change background</span><i class="fa-solid fa-forward" id="bg-next"></i>
+        <img src="contents/backward-w.png" alt="previous" width="27px" id="bg-prev"><span>change background</span><img
+          src="contents/forward-w.png" alt="next" width="27px" id="bg-next">
       </div>
       <div class="dark-btn s-item">dark/light mode</div>
     </div>
   </div>
 
+  <!-- bottom  notice  -->
   <div class="notice flex">
-    <small>- Create desktop shortcut for better experience <br>- All data is stored in your device</small>
+    <small>- Create desktop shortcut for better experience <br>- All data is stored in your device <br> - Works offline
+      after installation</small>
     <span class="flex">&times;</span>
   </div>
-<div class="black-effect"></div>
+  <div class="black-effect"></div>
 
   <script src="script.js"></script>
-  
+  <script src="script2.js"></script>
 
 </body>
 

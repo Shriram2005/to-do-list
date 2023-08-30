@@ -5,13 +5,17 @@
     margin: 0;
     padding: 0;
     border: border-box;
+    user-select: none;
+}
+
+*:focus, *:active {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body,
 html {
     height: 100%;
-    /* min-height: 100%; */
-
 }
 
 .flex {
@@ -21,7 +25,7 @@ html {
 }
 
 .container {
-    background-image: linear-gradient(130deg, rgb(115, 0, 255), rgb(102, 0, 128));
+    background-image:url("./contents/backgrounds/purple-design.svg");
     background-size: cover;
     height: 100%;
     display: flex;
@@ -49,7 +53,7 @@ html {
 .input-div {
     display: flex;
     justify-content: center;
-    height: 45px;
+    height: 47px;
     padding-inline: 10px;
     position: sticky;
     top: 20px;
@@ -66,22 +70,20 @@ html {
     text-indent: 20px;
     padding-right: 45px;
     font-family: monospace;
-
 }
 
 .add {
-    border-radius: 50px;
+    /* border-radius: 50px; */
+    border-radius: 40px;
     color: white;
     font-weight: 600;
     background-color: rgb(255, 78, 47);
     padding: 5px 25px;
-    /* margin-left: -35px; */
     margin-left: -37px;
-    height: auto;
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
-    user-select: none;
 }
 
 .tasks-box {
@@ -92,7 +94,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* tasks-box scrollbar effects  */
+/* tasks-box scrollbar effects --------------------------- */
 .tasks-box::-webkit-scrollbar {
     width: 8px;
     height: 100%;
@@ -123,7 +125,6 @@ html {
     padding: 10px 10px 5px 50px;
     position: relative;
     border-radius: 20px;
-    user-select: none;
 }
 
 .tasks-box ul li::before {
@@ -143,7 +144,6 @@ html {
     border-radius: 50%;
     float: right;
     cursor: pointer;
-    user-select: none;
 }
 
 .tasks-box ul li span:hover {
@@ -153,6 +153,7 @@ html {
 .click-item {
     /* background-color: rgb(197, 197, 197); */
     text-decoration: line-through;
+    /* text-decoration-color: rgb(0, 0, 0); */
     text-decoration-thickness: 1.5px;
     color: darkorange;
 }
@@ -177,15 +178,13 @@ html {
     font-family: sans-serif;
     opacity: 0.4;
     transition-duration: .2s;
-    user-select: none;
 }
 
 .notice small {
     text-align: center;
     background-color: rgb(255, 255, 255);
     border-radius: 6px;
-    padding: 3px 25px 3px 10px;
-
+    padding: 3px 35px 3px 10px;
 }
 
 .notice span {
@@ -195,13 +194,12 @@ html {
     width: 24px;
     height: 24px;
     position: relative;
-    right: 20px;
+    right: 28px;
     cursor: pointer;
     font-weight: 500;
 }
 
-/* dark effect area ---------------------> */
-
+/* dark effect area -----------------------------------> */
 .black-effect {
     position: absolute;
     width: 100%;
@@ -213,9 +211,7 @@ html {
 }
 
 
-
 /* settings area starts here ---------------------------------> */
-
 .settings-logo {
     position: absolute;
     top: 20px;
@@ -223,40 +219,41 @@ html {
     font-size: 30px;
     z-index: 4;
     padding: 10px;
-    text-shadow: 0px 0px 1px rgb(255, 255, 255);
+    /* text-shadow: 0px 0px 2px rgb(255, 255, 255); */
     cursor: pointer;
 }
 
+#gear {
+    transition-duration: .5s;
+    padding: 4px;
+    border-radius: 50%;
+}
 
 .settings {
     position: absolute;
     top: 35px;
     right: 35px;
     width: 300px;
-    border-radius: 5px;
-    padding: 20px 10px;
+    border-radius: 15px;
+    padding: 20px 20px;
     z-index: 3;
-    /* opacity: .5; */
     cursor: default;
-    font-family: fantasy;
-    font-weight: 600;
+    font-family: sans-serif;
     font-size: 20px;
-    border: 1px solid #000000;
-
-    user-select: none;
+    border: 2px solid #343434;
     /* transition-duration: .2s; */
     background-color: rgb(211, 211, 211);
     display: none;
 }
 
 .s-item {
-    padding: 5px 5px 5px 10px;
-    margin-bottom: 5px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
     border-radius: 4px;
     text-align: center;
 }
 
-.s-title{
+.s-title {
     text-align: center;
     margin: 10px 10px 30px 10px;
     font-size: 24px;
@@ -267,17 +264,21 @@ html {
     justify-content: space-between;
 }
 
-#bg-prev,#bg-next {
+#bg-prev,
+#bg-next {
     cursor: pointer;
-    font-size: 25px;
+    /* font-size: 25px; */
 }
 
 
-/* hover effects ----------------------------------------------- */
-
+/* hover effects ------------------------------------------------------ */
 .settings-logo:hover>.settings,
 .settings-logo:hover>.dark-effect {
     display: block;
+}
+
+.settings-logo:hover>#gear {
+    transform: rotate(100deg);
 }
 
 
@@ -289,27 +290,31 @@ html {
     opacity: 1;
 }
 
-#bg-prev:hover,#bg-next:hover{
+#bg-prev:hover,
+#bg-next:hover {
     scale: 1.3;
 }
 
 
 /* dark mode effects ------------------------------------------- */
-
 .dark-mode {
     background: rgb(21, 21, 26, 0.8);
     color: white;
 }
 
-/* media queries responsiveness ---------------------------------- */
 
-@media (width<=600px) {
+/* media queries responsiveness ---------------------------------- */
+@media (width<=500px) {
     .tasks-box {
         padding: 20px 5px;
     }
+    .settings{
+        margin-top: 10px;
+        margin-right: -35px;
+    }
 }
 
-@media (width>=600px) {
+@media (width>=500px) {
     /* .notice {
         display: none;
     } */

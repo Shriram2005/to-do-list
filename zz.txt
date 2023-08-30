@@ -2,8 +2,8 @@ make to do list completely offline available
 
 1    apply dark mode
 2    add settings options(icon):
-        -change bg
-        -dark mode
         -terms and conditions
 3    add a option to upload custom images
+
+prompt to install app
 

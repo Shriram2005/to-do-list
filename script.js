@@ -30,7 +30,7 @@ function addTask() {
         newTask.value = "";
 
         let span = document.createElement("span");
-        span.innerText = "\u00d7"
+        span.innerText = "\u00d7";
         li.append(span);
 
         // insert at first position------->
@@ -66,18 +66,19 @@ const bgButton = document.querySelector(".bg-change");
 const BackGround = document.querySelector(".container");
 const backgroundNo = [
     'linear-gradient(130deg,rgb(115, 0, 255),rgb(102, 0, 128)',
-    'url("./contents/backgrounds/bg1.svg")',
-    'url("./contents/backgrounds/bg2.jpg")',
-    'url("./contents/backgrounds/bg3.webp")',
-    'url("./contents/backgrounds/bg4.svg")',
-    'linear-gradient(darkorange, white, green)',
-    'linear-gradient(130deg,purple, black,red)',
-    'linear-gradient(black, black)',
+    'url("./contents/backgrounds/purple-design.svg")',
+    'url("./contents/backgrounds/wall.jpg")',
     'url("./contents/backgrounds/leaves.svg")',
     'url("./contents/backgrounds/speed-lines.svg")',
     'url("./contents/backgrounds/spotlight.svg")',
     'url("./contents/backgrounds/field.svg")',
     'url("./contents/backgrounds/circles.svg")',
+    'url("./contents/backgrounds/bg3.webp")',
+    'url("./contents/backgrounds/bg4.svg")',
+    'linear-gradient(darkorange, white, green)',
+    'linear-gradient(130deg,purple, black,red)',
+    'linear-gradient(black, black)',
+
 ];
 
 
@@ -96,7 +97,7 @@ function BgSaveData() {
     localStorage.setItem('background', setBG);
 }
 
-var i = 0;
+var i = 1;
 BgGetData();
 // set the image received by getData() 
 BackGround.style.backgroundImage = backgroundNo[i];
@@ -107,8 +108,8 @@ let bgPrevBtn = document.querySelector("#bg-prev");
 let bgNextBtn = document.querySelector("#bg-next");
 bgPrevBtn.addEventListener("click", () => {
     i--;
-    if (i <= 0) {
-        i = backgroundNo.length;
+    if (i < 0) {
+        i = backgroundNo.length - 1;
     }
     BackGround.style.backgroundImage = backgroundNo[i];
     BgSaveData();
@@ -142,16 +143,44 @@ removeNote.addEventListener("click", () => {
 })
 
 
-// dark/white mode button ------------------------------------>
+// dark/white mode button --------------------------------------------->
 
 const settingsBtn = document.querySelector(".settings-logo");
 const blackEffect = document.querySelector(".black-effect");
-
 let darkBtn = document.querySelector(".dark-btn");
+
+// Function to apply dark mode state
+function applyDarkModeState(isDarkMode) {
+    let box = document.querySelector('.box');
+    let titleLogo = document.querySelector("#list-logo");
+
+    if (isDarkMode) {
+        box.classList.add("dark-mode");
+        titleLogo.src = "contents/to-do-list-w.png";
+    } else {
+        box.classList.remove("dark-mode");
+        titleLogo.src = "contents/to-do-list.png";
+    }
+}
+
+// Event listener for the dark mode toggle
 darkBtn.addEventListener("click", () => {
     let box = document.querySelector('.box');
+    let settingsBox = document.querySelector('.settings');
+
+
     box.classList.toggle("dark-mode");
 
+    if(box.classList.contains("dark-mode")) {
+        settingsBox.classList.add("dark-mode");
+        bgNextBtn.src = "contents/forward-w.png";
+        bgPrevBtn.src = "contents/backward-w.png";
+    }
+    else{
+        settingsBox.classList.remove("dark-mode");
+        bgNextBtn.src = "contents/forward.svg";
+        bgPrevBtn.src = "contents/backward.svg";
+    }
     let titleLogo = document.querySelector("#list-logo");
 
     if (titleLogo.getAttribute("src") === "contents/to-do-list.png") {
@@ -160,7 +189,21 @@ darkBtn.addEventListener("click", () => {
         titleLogo.src = "contents/to-do-list.png";
     }
 
+    // Save dark mode state
+    const isDarkMode = box.classList.contains("dark-mode");
+    localStorage.setItem('darkModeEnabled', isDarkMode);
 });
+
+// get darkmode state from local storage 
+const savedDarkMode = localStorage.getItem('darkModeEnabled');
+
+// check dark mode accordingly 
+if (savedDarkMode === 'true') {
+    applyDarkModeState(true);
+} else {
+    applyDarkModeState(false);
+}
+
 
 
 

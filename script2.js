@@ -1,5 +1,6 @@
 // black effect on settings hover ---------------->
 
+
 settingsBtn.addEventListener("mouseover", () => {
     blackEffect.style.display = 'block';
 });
