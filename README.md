@@ -6,8 +6,11 @@ I've built a basic to-do list web app that helps you stay organized and focused.
 💻 Features:
 
 📌 Add Tasks: Quickly add new tasks and stay on top of your to-do list.
+
 🗑️ Remove Tasks: Easily remove completed or unnecessary tasks with just one click.
+
 ✅ Mark as Done: Keep track of completed tasks by marking them as done.
+
 🎨 Change Backgrounds: Personalize your to-do list experience with a choice of backgrounds.
 
 🔧 Tech Stack:
